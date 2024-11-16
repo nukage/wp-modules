@@ -51,12 +51,12 @@ function copyFiles(src, dest) {
 
 // Function to prompt for installing dependencies
 async function promptForDependencies() {
-    // const response = await select({
-    //     message: "Do you want to install dependencies? (yes/no)",
-    //     choices: ["Yes", "No"],
-    // });
+    const response = await select({
+        message: "Do you want to install dependencies? (yes/no)",
+        choices: ["Yes", "No"],
+    });
 
-    // if (response.toLowerCase() === 'yes') {
+    if (response.toLowerCase() === 'yes') {
         const dependencies = [
             "github:nukage/tailthemer",
             "@tailwindcss/forms",
@@ -77,19 +77,23 @@ async function promptForDependencies() {
         const depsString = dependencies.join(' ');
         console.log(`\n Example package-tailwind.json has been added to root folder - copy scripts and dependencies into your own package.json and then delete package-tailwind.json when you're done. \n`);
         console.log(`\n RUN THIS TO INSTALL DEPENDENCIES: \n npm install ${depsString} \n`);
-        // exec(`npm install ${depsString}`, { cwd: destDir }, (error, stdout, stderr) => {
-        //     if (error) {
-        //         console.error(`Error installing dependencies: ${error}`);
-        //         return;
-        //     }
-        //     console.log(`Dependencies installed successfully:\n${stdout}`);
-        //     if (stderr) {
-        //         console.error(`Stderr output:\n${stderr}`);
-        //     }
-        // });
-    // } else {
-    //     console.log('Skipping dependencies installation.');
-    // }
+        exec(`npm install ${depsString}`, { cwd: destDir }, (error, stdout, stderr) => {
+            if (error) {
+                console.error(`Error installing dependencies: ${error}`);
+                return;
+            }
+            console.log(`Dependencies installed successfully:\n${stdout}`);
+            if (stderr) {
+                console.error(`Stderr output:\n${stderr}`);
+            }
+        });
+
+        console.log('Dependencies step is done.');
+
+
+    } else {
+        console.log('Skipping dependencies installation.');
+    }
 }
 
 // Start the copy operation
