@@ -51,10 +51,10 @@ function copyFiles(src, dest) {
 
 // Function to prompt for installing dependencies
 async function promptForDependencies() {
-    const response = await select({
-        message: "Do you want to install dependencies? (yes/no)",
-        choices: ["Yes", "No"],
-    });
+    // const response = await select({
+    //     message: "Do you want to install dependencies? (yes/no)",
+    //     choices: ["Yes", "No"],
+    // });
 
     if (response.toLowerCase() === 'yes') {
         const dependencies = [
@@ -75,16 +75,17 @@ async function promptForDependencies() {
         ];
 
         const depsString = dependencies.join(' ');
-        exec(`npm install ${depsString}`, { cwd: destDir }, (error, stdout, stderr) => {
-            if (error) {
-                console.error(`Error installing dependencies: ${error}`);
-                return;
-            }
-            console.log(`Dependencies installed successfully:\n${stdout}`);
-            if (stderr) {
-                console.error(`Stderr output:\n${stderr}`);
-            }
-        });
+        console.log(`\n RUN THIS TO INSTALL DEPENDENCIES: \n npm install ${depsString}`);
+        // exec(`npm install ${depsString}`, { cwd: destDir }, (error, stdout, stderr) => {
+        //     if (error) {
+        //         console.error(`Error installing dependencies: ${error}`);
+        //         return;
+        //     }
+        //     console.log(`Dependencies installed successfully:\n${stdout}`);
+        //     if (stderr) {
+        //         console.error(`Stderr output:\n${stderr}`);
+        //     }
+        // });
     } else {
         console.log('Skipping dependencies installation.');
     }
