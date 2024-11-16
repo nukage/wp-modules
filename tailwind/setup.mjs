@@ -56,7 +56,7 @@ async function promptForDependencies() {
     //     choices: ["Yes", "No"],
     // });
 
-    if (response.toLowerCase() === 'yes') {
+    // if (response.toLowerCase() === 'yes') {
         const dependencies = [
             "github:nukage/tailthemer",
             "@tailwindcss/forms",
@@ -72,10 +72,10 @@ async function promptForDependencies() {
             "postcss-rem-to-pixel",
             "resolve-url-loader",
             "tailwindcss"
-        ];
+         ];
 
         const depsString = dependencies.join(' ');
-        console.log(`\n RUN THIS TO INSTALL DEPENDENCIES: \n npm install ${depsString}`);
+        console.log(`\n RUN THIS TO INSTALL DEPENDENCIES: \n npm install ${depsString} \n`);
         // exec(`npm install ${depsString}`, { cwd: destDir }, (error, stdout, stderr) => {
         //     if (error) {
         //         console.error(`Error installing dependencies: ${error}`);
@@ -86,9 +86,9 @@ async function promptForDependencies() {
         //         console.error(`Stderr output:\n${stderr}`);
         //     }
         // });
-    } else {
-        console.log('Skipping dependencies installation.');
-    }
+    // } else {
+    //     console.log('Skipping dependencies installation.');
+    // }
 }
 
 // Start the copy operation
