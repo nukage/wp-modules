@@ -14,7 +14,7 @@ mix.webpackConfig({
 
 // mix.js('resources/js/app.js', 'js');
 
-mix.postCss("resources/css/app.css", "css");
+mix.postCss("resources/css/tailwind.css", "css");
 
 // mix.postCss('resources/blocks/**/*.css', 'resources/blocks/');
 
