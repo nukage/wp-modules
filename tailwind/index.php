@@ -2,7 +2,7 @@
 
 // ENQUEUE TAILWIND STYLESHEET, FRONT AND BACK
 
-$tailwind_css =  get_template_directory_uri() . '/css/app.css';
+$tailwind_css =  get_template_directory_uri() . '/css/tailwind.css';
 
 function enqueue_css($css, $cssname)
 {
