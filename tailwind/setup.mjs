@@ -75,6 +75,7 @@ async function promptForDependencies() {
          ];
 
         const depsString = dependencies.join(' ');
+        console.log(`\n Example package-tailwind.json has been added to root folder - copy scripts and dependencies into your own package.json and then delete package-tailwind.json when you're done. \n`);
         console.log(`\n RUN THIS TO INSTALL DEPENDENCIES: \n npm install ${depsString} \n`);
         // exec(`npm install ${depsString}`, { cwd: destDir }, (error, stdout, stderr) => {
         //     if (error) {
