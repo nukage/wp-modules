@@ -1,8 +1,8 @@
 import fs from 'fs';
 import { input, select } from '@inquirer/prompts';
 
-const filePath = 'resources/modules/fast-register/js'; // Adjust this path as needed
-const cssPath = 'resources/modules/fast-register/css'; // Adjust this path as needed
+const filePath = process.env.CHILD_SCRIPT_DIR + '/js'; 
+const cssPath = process.env.CHILD_SCRIPT_DIR + '/css'; 
 
 async function main() {
   if (!fs.existsSync('js')) {
@@ -39,7 +39,7 @@ add_action('wp_enqueue_scripts', 'boilerplate_load_assets');
     const fileName = file.replace('.js', '');
 
     // Check if the script is already registered in index.php
-    if (indexPhpContent.includes(`'${fileName}'`)) {
+    if (indexPhpContent.includes(`${fileName}`)) {
       console.log(`Script '${fileName}' is already registered.`);
       continue;
     }
